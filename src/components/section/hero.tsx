@@ -40,10 +40,10 @@ export default function Hero() {
           <div className="absolute top-0 left-0 w-full h-full bg-black opacity-30"></div>
           <div className="relative z-10 px-4 sm:px-6 md:px-8 text-white text-center py-8 sm:py-12 lg:py-16 max-w-4xl mx-auto w-full">
             <h1 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 text-center">
-              {data?.value ? data.value.title ?? "[Judul hero belum diatur]" : "[Judul hero belum diatur]"}
+              {data?.value ? data?.value?.title ?? "" : "[Judul hero belum diatur]"}
             </h1>
             <p className="text-base sm:text-lg md:text-xl mb-4 sm:mb-6 text-center">
-              {data?.value ? data?.value?.description ?? "[Deskripsi hero belum diatur]" : "[Deskripsi hero belum diatur]"}
+              {data?.value ? data?.value?.description ?? "" : "[Deskripsi hero belum diatur]"}
             </p>
           </div>
         </>
