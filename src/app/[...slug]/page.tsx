@@ -33,10 +33,6 @@ interface PageProps {
   params: Promise<{ slug?: string }>;
 }
 
-interface DynamicPageProps {
-  params: { slug?: string[] };
-}
-
 export const dynamic = "force-dynamic";
 export async function generateMetadata({
   params,
@@ -71,13 +67,9 @@ export async function generateMetadata({
   }
 }
 
-interface DynamicPageProps {
-  params: { slug?: string[] };
-}
-
 export default async function DynamicPage({
   params,
-}: DynamicPageProps & PageProps) {
+}: PageProps) {
   const unwrappedParams = await params;
   const path = Array.isArray(unwrappedParams.slug)
       ? unwrappedParams.slug

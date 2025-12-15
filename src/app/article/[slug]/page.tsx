@@ -9,10 +9,6 @@ import { redirect } from "next/navigation";
 import Link from "next/link";
 import { getArticle } from "@/hooks/contents/article/getArticle";
 
-interface DynamicPageProps {
-  params: { slug: string };
-}
-
 interface PageProps {
   params: Promise<{ slug: string }>;
 }
@@ -47,8 +43,8 @@ export async function generateMetadata({
 
 export default async function ArticleDetailPage({
   params,
-}: DynamicPageProps & PageProps) {
-  const { slug } =  params;
+}:  PageProps) {
+  const { slug } = await params;
   try {
     const article = await getArticle(slug);
    
@@ -60,7 +56,7 @@ export default async function ArticleDetailPage({
       </div>
     );
   } catch {
-     if (validateAndRedirect([params.slug])) {
+     if (validateAndRedirect([slug])) {
         return redirect("/article");
     }
     return (

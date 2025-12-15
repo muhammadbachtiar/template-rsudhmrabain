@@ -10,7 +10,7 @@ const axiosConfig = axios.create({
       Accept: "application/json",
      "x-village-id": process.env.NEXT_PUBLIC_VILLAGE_ID,
     },
-    timeout: 15000
+    timeout: 300000
   });
   
 axiosConfig.interceptors.request.use(
